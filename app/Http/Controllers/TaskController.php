@@ -21,6 +21,9 @@ class TaskController extends Controller
     // Parameter $request adalah instance dari kelas Request, yang berisi semua data yang dikirim oleh pengguna melalui permintaan HTTP. Ini termasuk data dari query string, form data.
     public function index(Request $request)
     {
+        // Mengambil nilai dari input dengan nama query
+        // Mengirimkan permintaan dengan parameter query maka nilai tersebut akan disimpan dalam variabel.
+        // Jika tidak ada parameter query yang dikirim, $query akan bernilai null.
         $query = $request->input('query');
 
         if ($query) {
