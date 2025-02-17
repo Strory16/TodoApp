@@ -12,8 +12,8 @@ use App\Models\TaskList; // Model untuk entitas TaskList
 // Mengimpor kelas Request dari namespace Illuminate\Http
 use Illuminate\Http\Request; // Digunakan untuk menangani permintaan HTTP yang masuk,                         termasuk data yang dikirim oleh pengguna.
 
-class TaskController extends Controller
-{
+// Mendefinisikan kelas TaskController yang mewarisi dari Controller
+class TaskController extends Controller{
     public function index(Request $request)
     {
         $query = $request->input('query');
