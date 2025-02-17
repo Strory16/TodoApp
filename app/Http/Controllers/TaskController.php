@@ -5,8 +5,9 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\Task;
-use App\Models\TaskList;
+// Mengimpor model Task dan TaskList dari namespace App\Models
+use App\Models\Task; // Model untuk entitas Task
+use App\Models\TaskList; // Model untuk entitas TaskList
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
