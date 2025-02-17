@@ -17,7 +17,8 @@ use Illuminate\Http\Request; // Digunakan untuk menangani permintaan HTTP yang m
 class TaskController extends Controller
 
 {
-    //public function index mendefinisikan metode publik bernama index. Metode ini biasanya digunakan dalam konteks controller untuk menangani permintaan HTTP GET yang mengarah ke daftar sumber daya (dalam hal ini, daftar tugas).
+    // Public function index mendefinisikan metode publik bernama index. Metode ini biasanya digunakan dalam konteks controller untuk menangani permintaan HTTP GET yang mengarah ke daftar sumber daya (dalam hal ini, daftar tugas).
+    // Parameter $request adalah instance dari kelas Request, yang berisi semua data yang dikirim oleh pengguna melalui permintaan HTTP. Ini termasuk data dari query string, form data.
     public function index(Request $request)
     {
         $query = $request->input('query');
