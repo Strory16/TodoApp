@@ -1,4 +1,4 @@
-<?php
+<?php // Tag pembuka untuk kode PHP
 
 // Menentukan namespace untuk mengorganisir kode
 namespace App\Http\Controllers;
