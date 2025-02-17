@@ -26,11 +26,13 @@ class TaskController extends Controller
         // Jika tidak ada parameter query yang dikirim, $query akan bernilai null.
         $query = $request->input('query');
 
-        if ($query) {
-            $tasks = Task::where('name', 'like', "%{$query}%")
-                ->orWhere('description', 'like', "%{$query}%")
-                ->latest()
-                ->get();
+        // Memeriksa apakah ada input pencarian
+    if ($query) {
+        // Membangun query untuk mencari tugas berdasarkan nama atau deskripsi
+        $tasks = Task::where('name', 'like', "%{$query}%") // Mencari di kolom 'name'
+            ->orWhere('description', 'like', "%{$query}%") // Mencari di kolom 'description'
+            ->latest() // Mengurutkan hasil berdasarkan waktu pembuatan terbaru
+            ->get(); // Mengambil semua hasil yang cocok
 
             $lists = TaskList::where('name', 'like', "%{$query}%")
                 ->orWhereHas('tasks', function ($q) use ($query) {
