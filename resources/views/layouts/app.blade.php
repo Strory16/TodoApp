@@ -7,6 +7,8 @@
     <meta charset="UTF-8"> <!-- Tag ini menetapkan pengkodean karakter untuk dokumen sebagai UTF-8. !-->
     <!-- Tag ini mengatur viewport untuk perangkat mobile. Ini penting untuk responsivitas halaman. !-->
     <!-- width=device-width berarti lebar viewport akan disesuaikan dengan lebar perangkat.!-->
+    <!-- initial-scale=1.0 mengatur skala awal saat halaman pertama kali dimuat. Ini memastikan bahwa halaman tidak diperbesar atau diperkecil secara otomatis. !-->
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
