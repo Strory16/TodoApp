@@ -3,6 +3,7 @@
 // Mendefinisikan namespace untuk model ini, biasanya sesuai dengan struktur folder aplikasi
 namespace App\Models;
 
+// Mengimpor kelas Model dari Laravel Eloquent
 use Illuminate\Database\Eloquent\Model;
 
 class TaskList extends Model
