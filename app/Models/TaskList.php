@@ -18,7 +18,10 @@ class TaskList extends Model
         'created_at',  // Tanggal dan waktu saat TaskList dibuat, tidak dapat diisi secara massal
         'updated_at'   // Tanggal dan waktu saat TaskList terakhir diperbarui, tidak dapat diisi secara massal
     ];
+
+    // Mendefinisikan relasi satu ke banyak dengan model Task
     public function tasks() {
+        // Mengembalikan relasi hasMany, yang menunjukkan bahwa satu TaskList dapat memiliki banyak Task
         return $this->hasMany(Task::class, 'list_id');
     }
 }
