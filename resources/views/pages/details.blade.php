@@ -34,7 +34,8 @@
                 <div class="card" style="height: 80vh;">  
 <!-- Header kartu dengan layout flexbox, mengatur item secara horizontal dan meratakan mereka -->
                     <div class="card-header d-flex align-items-center justify-content-between overflow-hidden"> 
-                        <h3 class="fw-bold fs-4 text-truncate mb-0" style="width: 80%">  <!-- Judul dengan teks tebal (fw-bold), ukuran font 4 (fs-4), dan memotong teks yang terlalu panjang (text-truncate) -->
+<!-- Judul dengan teks tebal (fw-bold), ukuran font 4 (fs-4), dan memotong teks yang terlalu panjang (text-truncate) -->
+                        <h3 class="fw-bold fs-4 text-truncate mb-0" style="width: 80%">  
                             {{ $task->name }}  <!-- Menampilkan nama tugas dari objek $task -->
                             <span class="fs-6 fw-medium">di {{ $task->list->name }}</span>  <!-- Menampilkan nama daftar tugas terkait dengan ukuran font 6 (fs-6) dan teks sedang (fw-medium) -->
                         </h3>
