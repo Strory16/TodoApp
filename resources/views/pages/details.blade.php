@@ -54,9 +54,9 @@
                         <p>
     {{ $task->description }}  <!-- Menampilkan deskripsi tugas dari objek $task -->
 
-        </p>
+    </p>
         </div>
-        <div class="card-footer">  <!-- Bagian footer kartu, biasanya digunakan untuk tindakan tambahan -->
+         <div class="card-footer">  <!-- Bagian footer kartu, biasanya digunakan untuk tindakan tambahan -->
             <form action="{{ route('tasks.destroy', $task->id) }}" method="POST" style="display: inline;">  <!-- Form untuk menghapus tugas, mengarah ke route 'tasks.destroy' dengan ID tugas -->
                 @csrf  <!-- Menambahkan token CSRF untuk keamanan -->
                 @method('DELETE')  <!-- Menentukan metode HTTP sebagai DELETE -->
@@ -64,9 +64,9 @@
                     DELETE  <!-- Teks tombol -->
                 </button>
             </form>
-        </div>
-        </div>
-        </div>
+             </div>
+         </div>
+     </div>
         <div class="col-4">  <!-- Membuat kolom dengan lebar 4 dari 12 kolom Bootstrap -->
             <div class="card" style="height: 80vh;">  <!-- Membuat kartu dengan tinggi 80% dari viewport height (vh) -->
                 <div class="card-header d-flex align-items-center justify-content-between overflow-hidden">  <!-- Header kartu dengan layout flexbox, mengatur item secara horizontal dan meratakan mereka -->
