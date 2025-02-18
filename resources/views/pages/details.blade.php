@@ -96,15 +96,15 @@
             </div>
         </div>
 
-    <div class="modal fade" id="editTaskModal" tabindex="-1" aria-labelledby="editTaskModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <form action="{{ route('tasks.update', $task->id) }}" method="POST" class="modal-content">
-                @method('PUT')
-                @csrf
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="editTaskModalLabel">Edit Task</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
+        <div class="modal fade" id="editTaskModal" tabindex="-1" aria-labelledby="editTaskModalLabel" aria-hidden="true">  <!-- Membuat modal dengan ID 'editTaskModal', yang akan ditampilkan dengan efek fade -->
+            <div class="modal-dialog">  <!-- Membuat dialog modal untuk menampung konten modal -->
+                <form action="{{ route('tasks.update', $task->id) }}" method="POST" class="modal-content">  <!-- Form untuk memperbarui tugas, mengarah ke route 'tasks.update' dengan ID tugas -->
+                    @method('PUT')  <!-- Menentukan metode HTTP sebagai PUT untuk memperbarui data -->
+                    @csrf  <!-- Menambahkan token CSRF untuk keamanan -->
+                    <div class="modal-header">  <!-- Bagian header modal, biasanya berisi judul dan tombol tutup -->
+                        <h1 class="modal-title fs-5" id="editTaskModalLabel">Edit Task</h1>  <!-- Judul modal dengan ukuran font 5 (fs-5) -->
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>  <!-- Tombol untuk menutup modal, menggunakan kelas 'btn-close' dari Bootstrap -->
+                    </div>
                 <div class="modal-body">
                     <input type="text" value="{{ $task->list_id }}" name="list_id" hidden>
                     <div class="mb-3">
