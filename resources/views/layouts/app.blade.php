@@ -12,8 +12,7 @@
     <!-- Tag ini memberi tahu Internet Explorer untuk menggunakan mode rendering terbaru yang tersedia.!-->
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <!-- {{ $title }} adalah sintaks Blade (sistem templating Laravel) yang digunakan untuk menampilkan variabel $title yang dikirim dari controller ke tampilan. !-->
-    <!-- judul halaman untuk dinamis, tergantung pada konteks halaman yang sedang ditampilkan. !-->
+    <!-- {{ $title }} adalah sintaks Blade (sistem templating Laravel) yang digunakan untuk menampilkan variabel $title yang dikirim dari controller ke tampilan. judul halaman untuk dinamis, tergantung pada konteks halaman yang sedang ditampilkan. !-->
     <!-- menampilkan nama aplikasi yang diambil dari file konfigurasi Laravel (config/app.php). !-->
     <title>{{ $title }} - {{ config('app.name') }}</title>
 
