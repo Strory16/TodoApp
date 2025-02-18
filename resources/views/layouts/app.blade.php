@@ -21,7 +21,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 
-<body>
+<body> <!-- Tag <body> adalah elemen utama yang berisi semua konten yang akan ditampilkan kepada pengguna di halaman web.!-->
+    
     @include('partials.navbar') <!-- Mengambil component navbar -->
 
     @yield('content') <!-- Render content -->
