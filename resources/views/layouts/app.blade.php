@@ -22,13 +22,13 @@
 </head>
 
 <body> <!-- Tag <body> adalah elemen utama yang berisi semua konten yang akan ditampilkan kepada pengguna di halaman web.!-->
-    
+
     @include('partials.navbar') <!-- Mengambil component navbar -->
 
     @yield('content') <!-- Render content -->
 
-    @include('partials.modal')
-
+    @include('partials.modal') <!-- Mengambil komponen modal untuk interaksi pengguna -->
+    
     <script src="{{ asset('js/script.js') }}"></script>
     <!-- Import Bootstrap JS Online -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
