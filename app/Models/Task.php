@@ -8,8 +8,7 @@ use App\Models\TaskList; // Mengimpor model TaskList, yang akan digunakan untuk 
 class Task extends Model // Mendefinisikan kelas Task yang mewarisi dari Model Eloquent.
 {
     protected $fillable = [ // Mendefinisikan atribut yang dapat diisi secara massal. Ini adalah daftar kolom yang dapat diisi ketika menggunakan metode mass assignment.
-        'name', //  dapat diisi secara massal saat membuat atau memperbarui entitas Task.
-        '', // Ada string kosong di sini yang seharusnya dihapus. Ini tidak memiliki arti dan dapat menyebabkan kesalahan saat melakukan mass assignment.
+        'name', // Atribut yang dapat diisi secara massal saat membuat atau memperbarui entitas Task.
         'description', // 'description' adalah atribut yang menyimpan deskripsi tugas. Ini dapat diisi secara massal untuk memberikan informasi lebih lanjut tentang tugas.
         'is_completed', // 'is_completed' adalah atribut boolean yang menunjukkan apakah tugas telah selesai atau belum. Ini juga dapat diisi secara massal untuk memperbarui status tugas.
         'priority', // 'priority' adalah atribut yang menyimpan tingkat prioritas tugas (misalnya, 'low', 'medium', 'high'). Ini dapat diisi secara massal untuk menentukan seberapa penting tugas tersebut.
