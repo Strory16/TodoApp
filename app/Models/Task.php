@@ -12,7 +12,7 @@ class Task extends Model // Mendefinisikan kelas Task yang mewarisi dari Model E
         'description', // Atribut yang menyimpan deskripsi tugas.
         'is_completed', // Atribut boolean yang menunjukkan apakah tugas telah selesai atau belum. 
         'priority', // Atribut yang menyimpan tingkat prioritas tugas (misalnya, 'low', 'medium', 'high').
-        'list_id' // 'list_id' adalah atribut yang menyimpan ID dari daftar tugas (TaskList) yang terkait dengan tugas ini. Ini juga dapat diisi secara massal untuk mengaitkan tugas dengan daftar yang tepat.
+        'list_id' // Atribut yang menyimpan ID dari daftar tugas (TaskList) yang terkait dengan tugas ini.
     ];
 
     protected $guarded = [ // Mendefinisikan atribut yang tidak dapat diisi secara massal.
