@@ -1,10 +1,14 @@
-@extends('layouts.app')  <!-- Menggunakan layout 'app' sebagai template dasar untuk halaman ini <!-->
+@extends('layouts.app')  <!-- Menggunakan layout 'app' sebagai template dasar untuk halaman ini -->
 
-@section('content')  // Menandai awal dari bagian 'content' yang akan diisi dalam layout
-    <div id="content" class="container">  // Membuat div dengan ID 'content' dan kelas 'container' untuk styling
-        <div class="d-flex align-items-center">  // Membuat div dengan kelas 'd-flex' untuk layout flexbox dan 'align-items-center' untuk vertikal center
-            <a href="{{ route('home') }}" class="btn btn-sm">  // Membuat tautan yang mengarah ke route 'home' dengan kelas 'btn' dan 'btn-sm' untuk styling tombol kecil
-                <i class="bi bi-arrow-left-short fs-4"></i>  // Menambahkan ikon panah kiri dari Bootstrap Icons dengan ukuran font 4
+<!-- Menandai awal dari bagian 'content' yang akan diisi dalam layout -->
+@section('content')  
+<!-- Membuat div dengan ID 'content' dan kelas 'container' untuk styling -->
+    <div id="content" class="container">      
+<!-- Membuat div dengan kelas 'd-flex' untuk layout flexbox dan 'align-items-center' untuk vertikal center -->
+        <div class="d-flex align-items-center">  
+<!-- Membuat tautan yang mengarah ke route 'home' dengan kelas 'btn' dan 'btn-sm' untuk styling tombol kecil -->        <a href="{{ route('home') }}" class="btn btn-sm">  
+
+                <i class="bi bi-arrow-left-short fs-4"></i> 
                 <span class="fw-bold fs-5">Kembali</span>  // Menambahkan teks 'Kembali' dengan kelas 'fw-bold' untuk teks tebal dan 'fs-5' untuk ukuran font 5
             </a>
         </div>
