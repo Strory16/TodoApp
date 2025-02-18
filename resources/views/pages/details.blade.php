@@ -28,8 +28,10 @@
 
 <!-- Membuat baris baru dengan margin vertikal (my-3) untuk spasi -->
         <div class="row my-3">  
-            <div class="col-8">  <!-- Membuat kolom dengan lebar 8 dari 12 kolom Bootstrap -->
-                <div class="card" style="height: 80vh;">  <!-- Membuat kartu dengan tinggi 80% dari viewport height (vh) -->
+<!-- Membuat kolom dengan lebar 8 dari 12 kolom Bootstrap -->
+            <div class="col-8">
+<!-- Membuat kartu dengan tinggi 80% dari viewport height (vh) --> 
+                <div class="card" style="height: 80vh;">  
                     <div class="card-header d-flex align-items-center justify-content-between overflow-hidden">  <!-- Header kartu dengan layout flexbox, mengatur item secara horizontal dan meratakan mereka -->
                         <h3 class="fw-bold fs-4 text-truncate mb-0" style="width: 80%">  <!-- Judul dengan teks tebal (fw-bold), ukuran font 4 (fs-4), dan memotong teks yang terlalu panjang (text-truncate) -->
                             {{ $task->name }}  <!-- Menampilkan nama tugas dari objek $task -->
