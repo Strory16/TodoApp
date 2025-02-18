@@ -8,8 +8,8 @@
     <!-- Tag ini mengatur viewport untuk perangkat mobile. Ini penting untuk responsivitas halaman. !-->
     <!-- width=device-width berarti lebar viewport akan disesuaikan dengan lebar perangkat.!-->
     <!-- initial-scale=1.0 mengatur skala awal saat halaman pertama kali dimuat. Ini memastikan bahwa halaman tidak diperbesar atau diperkecil secara otomatis. !-->
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Tag ini memberi tahu Internet Explorer untuk menggunakan mode rendering terbaru yang tersedia.!-->
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>{{ $title }} - {{ config('app.name') }}</title>
