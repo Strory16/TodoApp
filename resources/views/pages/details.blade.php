@@ -1,20 +1,20 @@
-@extends('layouts.app')
+@extends('layouts.app')  <!-- Menggunakan layout 'app' sebagai template dasar untuk halaman ini <!-->
 
-@section('content')
-    <div id="content" class="container">
-        <div class="d-flex align-items-center">
-            <a href="{{ route('home') }}" class="btn btn-sm">
-                <i class="bi bi-arrow-left-short fs-4"></i>
-                <span class="fw-bold fs-5">Kembali</span>
+@section('content')  // Menandai awal dari bagian 'content' yang akan diisi dalam layout
+    <div id="content" class="container">  // Membuat div dengan ID 'content' dan kelas 'container' untuk styling
+        <div class="d-flex align-items-center">  // Membuat div dengan kelas 'd-flex' untuk layout flexbox dan 'align-items-center' untuk vertikal center
+            <a href="{{ route('home') }}" class="btn btn-sm">  // Membuat tautan yang mengarah ke route 'home' dengan kelas 'btn' dan 'btn-sm' untuk styling tombol kecil
+                <i class="bi bi-arrow-left-short fs-4"></i>  // Menambahkan ikon panah kiri dari Bootstrap Icons dengan ukuran font 4
+                <span class="fw-bold fs-5">Kembali</span>  // Menambahkan teks 'Kembali' dengan kelas 'fw-bold' untuk teks tebal dan 'fs-5' untuk ukuran font 5
             </a>
         </div>
 
-        @session('success')
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                {{ session('success') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        @session('success')  // Memeriksa apakah ada session 'success' yang tersedia
+            <div class="alert alert-success alert-dismissible fade show" role="alert">  // Membuat div untuk menampilkan pesan sukses dengan kelas alert dan alert-success
+                {{ session('success') }}  // Menampilkan pesan sukses dari session
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>  // Tombol untuk menutup alert, menggunakan Bootstrap
             </div>
-        @endsession
+        @endsession  // Menandai akhir dari blok pemeriksaan session
 
         <div class="row my-3">
             <div class="col-8">
