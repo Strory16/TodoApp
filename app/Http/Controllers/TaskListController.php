@@ -11,7 +11,8 @@ use Illuminate\Http\Request; // Digunakan untuk menangani permintaan HTTP yang m
 
 class TaskListController extends Controller
 {
-    public function store(Request $request) {
+    public function store(Request $request) 
+    {
         // Validasi input dari permintaan
         $request->validate([
             'name' => 'required|max:100' // Memastikan 'name' diisi dan tidak lebih dari 100 karakter
@@ -26,7 +27,8 @@ class TaskListController extends Controller
         return redirect()->back(); // Kembali ke halaman sebelumnya
     }
 
-    public function destroy($id) {
+    public function destroy($id) 
+    {
         // Mencari entitas TaskList berdasarkan ID dan menghapusnya
         TaskList::findOrFail($id)->delete(); // Menghapus entitas dari database
     

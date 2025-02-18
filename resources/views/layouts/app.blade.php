@@ -1,8 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE html> <!--  Memberi tahu browser bahwa dokumen ini adalah dokumen HTML5 !-->
+<!-- Tag <html> adalah elemen root dari dokumen HTML. !-->
+<!-- Atribut lang="en" menunjukkan bahwa bahasa utama dari konten dalam dokumen ini adalah bahasa Inggris. !-->
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
+<head> <!-- pengaturan karakter, judul, dan link ke stylesheet atau skrip. !-->
+    <meta charset="UTF-8"> <!-- Tag ini menetapkan pengkodean karakter untuk dokumen sebagai UTF-8. !-->
+    <!-- Tag ini mengatur viewport untuk perangkat mobile. Ini penting untuk responsivitas halaman. !-->
+    <!-- width=device-width berarti lebar viewport akan disesuaikan dengan lebar perangkat.!-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
