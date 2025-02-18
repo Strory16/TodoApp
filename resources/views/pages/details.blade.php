@@ -50,51 +50,51 @@
                     </div>
 <!-- Bagian tubuh kartu, tempat konten utama dari kartu akan ditampilkan -->
                     <div class="card-body">  
+
                         <p>
-                            {{ $task->description }}
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <form action="{{ route('tasks.destroy', $task->id) }}" method="POST" style="display: inline;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" type="button" class="btn btn-sm btn-outline-danger w-100">
-                                DELETE
-                            </button>
-                        </form>
-                    </div>
+    {{ $task->description }}  <!-- Menampilkan deskripsi tugas dari objek $task -->
+
+        </p>
+        </div>
+        <div class="card-footer">  <!-- Bagian footer kartu, biasanya digunakan untuk tindakan tambahan -->
+            <form action="{{ route('tasks.destroy', $task->id) }}" method="POST" style="display: inline;">  <!-- Form untuk menghapus tugas, mengarah ke route 'tasks.destroy' dengan ID tugas -->
+                @csrf  <!-- Menambahkan token CSRF untuk keamanan -->
+                @method('DELETE')  <!-- Menentukan metode HTTP sebagai DELETE -->
+                <button type="submit" class="btn btn-sm btn-outline-danger w-100">  <!-- Tombol untuk menghapus tugas dengan kelas tombol kecil dan outline merah -->
+                    DELETE  <!-- Teks tombol -->
+                </button>
+            </form>
+        </div>
+        </div>
+        </div>
+        <div class="col-4">  <!-- Membuat kolom dengan lebar 4 dari 12 kolom Bootstrap -->
+            <div class="card" style="height: 80vh;">  <!-- Membuat kartu dengan tinggi 80% dari viewport height (vh) -->
+                <div class="card-header d-flex align-items-center justify-content-between overflow-hidden">  <!-- Header kartu dengan layout flexbox, mengatur item secara horizontal dan meratakan mereka -->
+                    <h3 class="fw-bold fs-4 text-truncate mb-0" style="width: 80%">Details</h3>  <!-- Judul 'Details' dengan teks tebal (fw-bold) dan ukuran font 4 (fs-4) -->
                 </div>
-            </div>
-            <div class="col-4">
-                <div class="card" style="height: 80vh;">
-                    <div class="card-header d-flex align-items-center justify-content-between overflow-hidden">
-                        <h3 class="fw-bold fs-4 text-truncate mb-0" style="width: 80%">Details</h3>
-                    </div>
-                    <div class="card-body d-flex flex-column gap-2">
-                        <form action="{{ route('tasks.changeList', $task->id) }}" method="POST">
-                            @csrf
-                            @method('PATCH')
-                            <select class="form-select" name="list_id" onchange="this.form.submit()">
-                                @foreach ($lists as $list)
-                                    <option value="{{ $list->id }}" {{ $list->id == $task->list_id ? 'selected' : '' }}>
-                                        {{ $list->name }}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </form>
-                        <h6 class="fs-6">
-                            Priotitas:
-                            <span class="badge text-bg-{{ $task->priorityClass }} badge-pill" style="width: fit-content">
-                                {{ $task->priority }}
-                            </span>
-                        </h6>
-                    </div>
-                    <div class="card-footer">
-                    </div>
+                <div class="card-body d-flex flex-column gap-2">  <!-- Bagian tubuh kartu dengan layout flexbox kolom dan jarak antar elemen -->
+                    <form action="{{ route('tasks.changeList', $task->id) }}" method="POST">  <!-- Form untuk mengubah daftar tugas, mengarah ke route 'tasks.changeList' dengan ID tugas -->
+                        @csrf  <!-- Menambahkan token CSRF untuk keamanan -->
+                        @method('PATCH')  <!-- Menentukan metode HTTP sebagai PATCH -->
+                        <select class="form-select" name="list_id" onchange="this.form.submit()">  <!-- Dropdown untuk memilih daftar tugas, mengirimkan form saat pilihan berubah -->
+                            @foreach ($lists as $list)  <!-- Mengulangi setiap daftar dalam koleksi $lists -->
+                                <option value="{{ $list->id }}" {{ $list->id == $task->list_id ? 'selected' : '' }}>  <!-- Menampilkan opsi dengan ID daftar, menandai opsi sebagai terpilih jika ID sama dengan ID daftar tugas -->
+                                    {{ $list->name }}  <!-- Menampilkan nama daftar -->
+                                </option>
+                            @endforeach
+                        </select>
+                    </form>
+                    <h6 class="fs-6">  <!-- Menampilkan teks dengan ukuran font 6 (fs-6) -->
+                        Priotitas:  <!-- Label untuk prioritas -->
+                        <span class="badge text-bg-{{ $task->priorityClass }} badge-pill" style="width: fit-content">  <!-- Menampilkan badge untuk prioritas dengan kelas yang sesuai -->
+                            {{ $task->priority }}  <!-- Menampilkan nilai prioritas dari objek $task -->
+                        </span>
+                    </h6>
+                </div>
+                <div class="card-footer">  <!-- Bagian footer kartu, bisa digunakan untuk menambahkan informasi tambahan atau tindakan -->
                 </div>
             </div>
         </div>
-    </div>
 
     <div class="modal fade" id="editTaskModal" tabindex="-1" aria-labelledby="editTaskModalLabel" aria-hidden="true">
         <div class="modal-dialog">
