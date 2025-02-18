@@ -26,20 +26,21 @@
 <!-- Menandai akhir dari blok pemeriksaan session -->
         @endsession  
 
-        <div class="row my-3">
-            <div class="col-8">
-                <div class="card" style="height: 80vh;">
-                    <div class="card-header d-flex align-items-center justify-content-between overflow-hidden">
-                        <h3 class="fw-bold fs-4 text-truncate mb-0" style="width: 80%">
-                            {{ $task->name }}
-                            <span class="fs-6 fw-medium">di {{ $task->list->name }}</span>
+<!-- Membuat baris baru dengan margin vertikal (my-3) untuk spasi -->
+        <div class="row my-3">  
+            <div class="col-8">  <!-- Membuat kolom dengan lebar 8 dari 12 kolom Bootstrap -->
+                <div class="card" style="height: 80vh;">  <!-- Membuat kartu dengan tinggi 80% dari viewport height (vh) -->
+                    <div class="card-header d-flex align-items-center justify-content-between overflow-hidden">  <!-- Header kartu dengan layout flexbox, mengatur item secara horizontal dan meratakan mereka -->
+                        <h3 class="fw-bold fs-4 text-truncate mb-0" style="width: 80%">  <!-- Judul dengan teks tebal (fw-bold), ukuran font 4 (fs-4), dan memotong teks yang terlalu panjang (text-truncate) -->
+                            {{ $task->name }}  <!-- Menampilkan nama tugas dari objek $task -->
+                            <span class="fs-6 fw-medium">di {{ $task->list->name }}</span>  <!-- Menampilkan nama daftar tugas terkait dengan ukuran font 6 (fs-6) dan teks sedang (fw-medium) -->
                         </h3>
-                        <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
-                            data-bs-target="#editTaskModal">
-                            <i class="bi bi-pencil-square"></i>
+                        <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"  <!-- Tombol untuk membuka modal edit tugas dengan kelas tombol kecil dan outline -->
+                            data-bs-target="#editTaskModal">  <!-- Menentukan target modal yang akan dibuka saat tombol diklik -->
+                            <i class="bi bi-pencil-square"></i>  <!-- Menambahkan ikon pensil dari Bootstrap Icons untuk menunjukkan fungsi edit -->
                         </button>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body">  <!-- Bagian tubuh kartu, tempat konten utama dari kartu akan ditampilkan -->
                         <p>
                             {{ $task->description }}
                         </p>
