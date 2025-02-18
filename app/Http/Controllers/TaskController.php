@@ -17,130 +17,134 @@ use Illuminate\Http\Request; // Digunakan untuk menangani permintaan HTTP yang m
 class TaskController extends Controller
 
 {
-    // Public function index mendefinisikan metode publik bernama index. Metode ini biasanya digunakan dalam konteks controller untuk menangani permintaan HTTP GET yang mengarah ke daftar sumber daya (dalam hal ini, daftar tugas).
-    // Parameter $request adalah instance dari kelas Request, yang berisi semua data yang dikirim oleh pengguna melalui permintaan HTTP. Ini termasuk data dari query string, form data.
-    public function index(Request $request)
-    {
-        // Mengambil nilai dari input dengan nama query
-        // Mengirimkan permintaan dengan parameter query maka nilai tersebut akan disimpan dalam variabel.
-        // Jika tidak ada parameter query yang dikirim, $query akan bernilai null.
-        $query = $request->input('query');
+// Public function index mendefinisikan metode publik bernama index. Metode ini biasanya digunakan dalam konteks controller untuk menangani permintaan HTTP GET yang mengarah ke daftar sumber daya (dalam hal ini, daftar tugas).
+// Parameter $request adalah instance dari kelas Request, yang berisi semua data yang dikirim oleh pengguna melalui permintaan HTTP. Ini termasuk data dari query string, form data.
+public function index(Request $request)
+{
+    // Mengambil nilai dari input dengan nama query
+    // Mengirimkan permintaan dengan parameter query maka nilai tersebut akan disimpan dalam variabel.
+    // Jika tidak ada parameter query yang dikirim, $query akan bernilai null.
+    $query = $request->input('query');
 
-        // Memeriksa apakah ada input pencarian
-    if ($query) {
-        // Membangun query untuk mencari tugas berdasarkan nama atau deskripsi
-        $tasks = Task::where('name', 'like', "%{$query}%") // Mencari di kolom 'name'
-            ->orWhere('description', 'like', "%{$query}%") // Mencari di kolom 'description'
-            ->latest() // Mengurutkan hasil berdasarkan waktu pembuatan terbaru
+    // Memeriksa apakah ada input pencarian
+if ($query) {
+    // Membangun query untuk mencari tugas berdasarkan nama atau deskripsi
+    $tasks = Task::where('name', 'like', "%{$query}%") // Mencari di kolom 'name'
+        ->orWhere('description', 'like', "%{$query}%") // Mencari di kolom 'description'
+        ->latest() // Mengurutkan hasil berdasarkan waktu pembuatan terbaru
+        ->get(); // Mengambil semua hasil yang cocok
+
+        // Membangun query untuk mengambil daftar TaskList berdasarkan pencarian
+        $lists = TaskList::where('name', 'like', "%{$query}%") // Mencari TaskList berdasarkan nama
+        ->orWhereHas('tasks', function ($q) use ($query) { // Mencari TaskList yang memiliki tasks yang cocok
+            $q->where('name', 'like', "%{$query}%") // Mencari di kolom 'name' dari tasks
+            ->orWhere('description', 'like', "%{$query}%"); // Mencari di kolom 'description' dari tasks
+            })
+            ->with('tasks') // Memuat relasi 'tasks' bersama dengan hasil
             ->get(); // Mengambil semua hasil yang cocok
-
-            $lists = TaskList::where('name', 'like', "%{$query}%")
-                ->orWhereHas('tasks', function ($q) use ($query) {
-                    $q->where('name', 'like', "%{$query}%")
-                        ->orWhere('description', 'like', "%{$query}%");
-                })
-                ->with('tasks')
-                ->get();
-
-
-            if ($tasks->isEmpty()) {
-                $lists->load('tasks');
-            } else {
-                $lists->load(['tasks' => function ($q) use ($query) {
-                    $q->where('name', 'like', "%{$query}%")
-                        ->orWhere('description', 'like', "%{$query}%");
-                }]);
-            }
+        
+        // Memeriksa apakah koleksi $tasks kosong
+        if ($tasks->isEmpty()) {
+            // Jika kosong, memuat semua tasks yang terkait dengan lists
+            $lists->load('tasks');
         } else {
-            $tasks = Task::latest()->get();
-            $lists = TaskList::with('tasks')->get();
+            // Jika tidak kosong, memuat tasks dengan filter pencarian
+            $lists->load(['tasks' => function ($q) use ($query) {
+                $q->where('name', 'like', "%{$query}%") // Mencari di kolom 'name' dari tasks
+                ->orWhere('description', 'like', "%{$query}%"); // Mencari di kolom 'description' dari tasks
+            }]);
         }
 
-        $data = [
-            'title' => 'Home',
-            'lists' => $lists,
-            'tasks' => $tasks,
-            'priorities' => Task::PRIORITIES
-        ];
-
-        return view('pages.home', $data);
+    } else {
+        $tasks = Task::latest()->get(); // Mengambil semua tugas terbaru jika tidak ada pencarian
+        $lists = TaskList::with('tasks')->get(); // Mengambil semua daftar tugas beserta tugas yang terkait
     }
+    
+    $data = [
+        'title' => 'Home', // Judul halaman
+        'lists' => $lists, // Daftar tugas
+        'tasks' => $tasks, // Tugas
+        'priorities' => Task::PRIORITIES // Daftar prioritas tugas
+    ];
+    
+    return view('pages.home', $data); // Mengembalikan tampilan dengan data yang telah disiapkan
+}
 
 
-    public function store(Request $request)
-    {
-        $request->validate([
-            'name' => 'required|max:100',
-            'description' => 'max:255',
-            'list_id' => 'required'
-        ]);
+public function store(Request $request)
+{
+    $request->validate([
+        'name' => 'required|max:100',
+        'description' => 'max:255',
+        'list_id' => 'required'
+    ]);
 
-        Task::create([
-            'name' => $request->name,
-            'description' => $request->description,
-            'list_id' => $request->list_id
-        ]);
+    Task::create([
+        'name' => $request->name,
+        'description' => $request->description,
+        'list_id' => $request->list_id
+    ]);
 
 
-        return redirect()->back();
-    }
+    return redirect()->back();
+}
 
-    public function complete($id)
-    {
-        Task::findOrFail($id)->update([
-            'is_completed' => true
-        ]);
+public function complete($id)
+{
+    Task::findOrFail($id)->update([
+        'is_completed' => true
+    ]);
 
-        return redirect()->back();
-    }
+    return redirect()->back();
+}
 
-    public function destroy($id)
-    {
-        Task::findOrFail($id)->delete();
+public function destroy($id)
+{
+    Task::findOrFail($id)->delete();
 
-        return redirect()->route('home');
-    }
+    return redirect()->route('home');
+}
 
-    public function show($id)
-    {
-        $data = [
-            'title' => 'Task',
-            'lists' => TaskList::all(),
-            'task' => Task::findOrFail($id),
-        ];
+public function show($id)
+{
+    $data = [
+        'title' => 'Task',
+        'lists' => TaskList::all(),
+        'task' => Task::findOrFail($id),
+    ];
 
-        return view('pages.details', $data);
-    }
+    return view('pages.details', $data);
+}
 
-    public function changeList(Request $request, Task $task)
-    {
-        $request->validate([
-            'list_id' => 'required|exists:task_lists,id',
-        ]);
+public function changeList(Request $request, Task $task)
+{
+    $request->validate([
+        'list_id' => 'required|exists:task_lists,id',
+    ]);
 
-        Task::findOrFail($task->id)->update([
-            'list_id' => $request->list_id
-        ]);
+    Task::findOrFail($task->id)->update([
+        'list_id' => $request->list_id
+    ]);
 
-        return redirect()->back()->with('success', 'List berhasil diperbarui!');
-    }
+    return redirect()->back()->with('success', 'List berhasil diperbarui!');
+}
 
-    public function update(Request $request, Task $task)
-    {
-        $request->validate([
-            'list_id' => 'required',
-            'name' => 'required|max:100',
-            'description' => 'max:255',
-            'priority' => 'required|in:low,medium,high'
-        ]);
+public function update(Request $request, Task $task)
+{
+    $request->validate([
+        'list_id' => 'required',
+        'name' => 'required|max:100',
+        'description' => 'max:255',
+        'priority' => 'required|in:low,medium,high'
+    ]);
 
-        Task::findOrFail($task->id)->update([
-            'list_id' => $request->list_id,
-            'name' => $request->name,
-            'description' => $request->description,
-            'priority' => $request->priority
-        ]);
+    Task::findOrFail($task->id)->update([
+        'list_id' => $request->list_id,
+        'name' => $request->name,
+        'description' => $request->description,
+        'priority' => $request->priority
+    ]);
 
-        return redirect()->back()->with('success', 'Task berhasil diperbarui!');
-    }
+    return redirect()->back()->with('success', 'Task berhasil diperbarui!');
+}
 }
