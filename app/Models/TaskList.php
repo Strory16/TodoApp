@@ -6,6 +6,7 @@ namespace App\Models;
 // Mengimpor kelas Model dari Laravel Eloquent
 use Illuminate\Database\Eloquent\Model;
 
+// Mendefinisikan kelas TaskList yang merupakan turunan dari Model Eloquent
 class TaskList extends Model
 {
     protected $fillable = ['name'];
