@@ -74,19 +74,18 @@ if ($query) {
 public function store(Request $request)
 {
     $request->validate([
-        'name' => 'required|max:100',
-        'description' => 'max:255',
-        'list_id' => 'required'
+        'name' => 'required|max:100', // Validasi nama tugas
+        'description' => 'max:255', // Validasi deskripsi tugas
+        'list_id' => 'required' // Validasi ID daftar tugas
     ]);
 
     Task::create([
-        'name' => $request->name,
-        'description' => $request->description,
-        'list_id' => $request->list_id
+        'name' => $request->name, // Menyimpan nama tugas
+        'description' => $request->description, // Menyimpan deskripsi tugas
+        'list_id' => $request->list_id // Menyimpan ID daftar tugas
     ]);
 
-
-    return redirect()->back();
+    return redirect()->back(); // Mengalihkan kembali ke halaman sebelumnya
 }
 
 public function complete($id)
