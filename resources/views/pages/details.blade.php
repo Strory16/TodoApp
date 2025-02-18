@@ -43,8 +43,9 @@
                         </h3>
 <!-- Menentukan target modal yang akan dibuka saat tombol diklik -->
                         <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"  
-                            data-bs-target="#editTaskModal">  
-                            <i class="bi bi-pencil-square"></i>  <!-- Menambahkan ikon pensil dari Bootstrap Icons untuk menunjukkan fungsi edit -->
+                            data-bs-target="#editTaskModal"> 
+<!-- Menambahkan ikon pensil dari Bootstrap Icons untuk menunjukkan fungsi edit --> 
+                            <i class="bi bi-pencil-square"></i>  
                         </button>
                     </div>
                     <div class="card-body">  <!-- Bagian tubuh kartu, tempat konten utama dari kartu akan ditampilkan -->
