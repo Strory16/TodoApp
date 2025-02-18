@@ -14,14 +14,17 @@
             </a>
         </div>
 
-        <!-- Memeriksa apakah ada session 'success' yang tersedia -->
+<!-- Memeriksa apakah ada session 'success' yang tersedia -->
         @session('success')  
-        <!-- Membuat div untuk menampilkan pesan sukses dengan kelas alert dan alert-success -->
+<!-- Membuat div untuk menampilkan pesan sukses dengan kelas alert dan alert-success -->
             <div class="alert alert-success alert-dismissible fade show" role="alert">  
-                {{ session('success') }}  // Menampilkan pesan sukses dari session
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>  // Tombol untuk menutup alert, menggunakan Bootstrap
+<!--  Menampilkan pesan sukses dari session -->
+                {{ session('success') }}  
+<!-- Tombol untuk menutup alert, menggunakan Bootstrap -->
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>  
             </div>
-        @endsession  // Menandai akhir dari blok pemeriksaan session
+<!-- Menandai akhir dari blok pemeriksaan session -->
+        @endsession  
 
         <div class="row my-3">
             <div class="col-8">
