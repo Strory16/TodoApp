@@ -99,7 +99,8 @@ public function complete($id)
         'is_completed' => true // Menandai tugas sebagai selesai
     ]);
 
-    return redirect()->back(); // Mengalihkan kembali ke halaman sebelumnya
+   // Mengalihkan kembali ke halaman sebelumnya setelah memperbarui status
+   return redirect()->back(); // Kembali ke halaman sebelumnya
 }
 
 public function destroy($id)
