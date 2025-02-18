@@ -27,8 +27,10 @@ class TaskListController extends Controller
     }
 
     public function destroy($id) {
-        TaskList::findOrFail($id)->delete();
-
-        return redirect()->back();
+        // Mencari entitas TaskList berdasarkan ID dan menghapusnya
+        TaskList::findOrFail($id)->delete(); // Menghapus entitas dari database
+    
+        // Mengalihkan kembali ke halaman sebelumnya setelah penghapusan
+        return redirect()->back(); // Kembali ke halaman sebelumnya
     }
 }
