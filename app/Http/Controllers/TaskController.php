@@ -71,14 +71,17 @@ if ($query) {
 }
 
 // Digunakan untuk menangani permintaan HTTP POST untuk menyimpan data baru ke dalam database.
+// Parameter $request adalah instance dari kelas Request, yang berisi semua data yang dikirim oleh pengguna melalui permintaan HTTP. Ini termasuk data dari form yang diisi oleh pengguna.
 public function store(Request $request)
-{
+{   
+    // Digunakan untuk memvalidasi data yang diterima dari permintaan.
     $request->validate([
         'name' => 'required|max:100', // Validasi nama tugas
         'description' => 'max:255', // Validasi deskripsi tugas
         'list_id' => 'required' // Validasi ID daftar tugas
     ]);
 
+    // Memanggil metode create pada model Task, yang secara otomatis akan mengisi kolom yang sesuai di tabel tasks dengan data yang diberikan.
     Task::create([
         'name' => $request->name, // Menyimpan nama tugas
         'description' => $request->description, // Menyimpan deskripsi tugas
