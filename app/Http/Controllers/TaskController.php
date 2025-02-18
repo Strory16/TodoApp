@@ -99,20 +99,20 @@ public function complete($id)
 
 public function destroy($id)
 {
-    Task::findOrFail($id)->delete();
+    Task::findOrFail($id)->delete(); // Menghapus tugas berdasarkan ID
 
-    return redirect()->route('home');
+    return redirect()->route('home'); // Mengalihkan ke rute 'home'
 }
 
 public function show($id)
 {
     $data = [
-        'title' => 'Task',
-        'lists' => TaskList::all(),
-        'task' => Task::findOrFail($id),
+        'title' => 'Task', // Judul halaman
+        'lists' => TaskList::all(), // Mengambil semua daftar tugas
+        'task' => Task::findOrFail($id), // Mengambil tugas berdasarkan ID
     ];
 
-    return view('pages.details', $data);
+    return view('pages.details', $data); // Mengembalikan tampilan dengan data yang telah disiapkan
 }
 
 public function changeList(Request $request, Task $task)
