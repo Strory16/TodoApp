@@ -41,8 +41,9 @@
 <!-- Menampilkan nama daftar tugas terkait dengan ukuran font 6 (fs-6) dan teks sedang (fw-medium) -->
                             <span class="fs-6 fw-medium">di {{ $task->list->name }}</span>  
                         </h3>
-                        <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"  <!-- Tombol untuk membuka modal edit tugas dengan kelas tombol kecil dan outline -->
-                            data-bs-target="#editTaskModal">  <!-- Menentukan target modal yang akan dibuka saat tombol diklik -->
+<!-- Menentukan target modal yang akan dibuka saat tombol diklik -->
+                        <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"  
+                            data-bs-target="#editTaskModal">  
                             <i class="bi bi-pencil-square"></i>  <!-- Menambahkan ikon pensil dari Bootstrap Icons untuk menunjukkan fungsi edit -->
                         </button>
                     </div>
