@@ -118,14 +118,14 @@ public function show($id)
 public function changeList(Request $request, Task $task)
 {
     $request->validate([
-        'list_id' => 'required|exists:task_lists,id',
+        'list_id' => 'required|exists:task_lists,id', // Validasi ID daftar tugas
     ]);
 
     Task::findOrFail($task->id)->update([
-        'list_id' => $request->list_id
+        'list_id' => $request->list_id // Mengupdate ID daftar tugas
     ]);
 
-    return redirect()->back()->with('success', 'List berhasil diperbarui!');
+    return redirect()->back()->with('success', 'List berhasil diperbarui!'); // Mengalihkan kembali dengan pesan sukses
 }
 
 public function update(Request $request, Task $task)
