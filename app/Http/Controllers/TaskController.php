@@ -143,14 +143,15 @@ public function update(Request $request, Task $task)
     ]);
 
     // Mencari tugas berdasarkan ID dan memperbarui atributnya
-Task::findOrFail($task->id)->update([
+    Task::findOrFail($task->id)->update([
     'list_id' => $request->list_id, // Mengupdate ID daftar tugas
     'name' => $request->name, // Mengupdate nama tugas
     'description' => $request->description, // Mengupdate deskripsi tugas
     'priority' => $request->priority // Mengupdate prioritas tugas
 ]);
 
-// Mengalihkan kembali ke halaman sebelumnya setelah memperbarui tugas
-return redirect()->back()->with('success', 'Task berhasil diperbarui!'); // Kembali dengan pesan sukses
+    // Mengalihkan kembali ke halaman sebelumnya setelah memperbarui tugas
+    return redirect()->back()->with('success', 'Task berhasil diperbarui!'); // Kembali dengan pesan sukses
 }
+
 }
