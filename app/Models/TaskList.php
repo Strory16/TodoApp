@@ -1,5 +1,6 @@
 <?php
 
+// Mendefinisikan namespace untuk model ini, biasanya sesuai dengan struktur folder aplikasi
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
