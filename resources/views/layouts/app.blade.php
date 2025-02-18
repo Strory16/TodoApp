@@ -14,6 +14,7 @@
 
     <!-- {{ $title }} adalah sintaks Blade (sistem templating Laravel) yang digunakan untuk menampilkan variabel $title yang dikirim dari controller ke tampilan. !-->
     <!-- judul halaman untuk dinamis, tergantung pada konteks halaman yang sedang ditampilkan. !-->
+    <!-- menampilkan nama aplikasi yang diambil dari file konfigurasi Laravel (config/app.php). !-->
     <title>{{ $title }} - {{ config('app.name') }}</title>
 
     <!-- Import Bootstrap CSS Online -->
