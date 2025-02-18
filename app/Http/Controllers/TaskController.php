@@ -102,7 +102,6 @@ public function complete($id)
    // Mengalihkan kembali ke halaman sebelumnya setelah memperbarui status
    return redirect()->back(); // Kembali ke halaman sebelumnya
 }
-
 public function destroy($id)
 {
     Task::findOrFail($id)->delete(); // Menghapus tugas berdasarkan ID
@@ -137,19 +136,21 @@ public function changeList(Request $request, Task $task)
 public function update(Request $request, Task $task)
 {
     $request->validate([
-        'list_id' => 'required',
-        'name' => 'required|max:100',
-        'description' => 'max:255',
-        'priority' => 'required|in:low,medium,high'
+        'list_id' => 'required', // Validasi untuk ID daftar tugas
+        'name' => 'required|max:100', // Validasi untuk nama tugas
+        'description' => 'max:255', // Validasi untuk deskripsi tugas
+        'priority' => 'required|in:low,medium,high' // Validasi untuk prioritas tugas
     ]);
 
-    Task::findOrFail($task->id)->update([
-        'list_id' => $request->list_id,
-        'name' => $request->name,
-        'description' => $request->description,
-        'priority' => $request->priority
-    ]);
+    // Mencari tugas berdasarkan ID dan memperbarui atributnya
+Task::findOrFail($task->id)->update([
+    'list_id' => $request->list_id, // Mengupdate ID daftar tugas
+    'name' => $request->name, // Mengupdate nama tugas
+    'description' => $request->description, // Mengupdate deskripsi tugas
+    'priority' => $request->priority // Mengupdate prioritas tugas
+]);
 
-    return redirect()->back()->with('success', 'Task berhasil diperbarui!');
+// Mengalihkan kembali ke halaman sebelumnya setelah memperbarui tugas
+return redirect()->back()->with('success', 'Task berhasil diperbarui!'); // Kembali dengan pesan sukses
 }
 }
