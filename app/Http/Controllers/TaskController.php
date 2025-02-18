@@ -91,6 +91,7 @@ public function store(Request $request)
     return redirect()->back(); // Mengalihkan kembali ke halaman sebelumnya
 }
 
+// Untuk menandai tugas tertentu sebagai selesai berdasarkan ID yang diberikan.
 public function complete($id)
 {
     Task::findOrFail($id)->update([
