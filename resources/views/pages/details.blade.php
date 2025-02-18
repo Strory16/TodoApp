@@ -14,7 +14,8 @@
             </a>
         </div>
 
-        @session('success')  // Memeriksa apakah ada session 'success' yang tersedia
+        <!-- Memeriksa apakah ada session 'success' yang tersedia -->
+        @session('success')  
             <div class="alert alert-success alert-dismissible fade show" role="alert">  // Membuat div untuk menampilkan pesan sukses dengan kelas alert dan alert-success
                 {{ session('success') }}  // Menampilkan pesan sukses dari session
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>  // Tombol untuk menutup alert, menggunakan Bootstrap
