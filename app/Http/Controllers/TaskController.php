@@ -91,10 +91,10 @@ public function store(Request $request)
 public function complete($id)
 {
     Task::findOrFail($id)->update([
-        'is_completed' => true
+        'is_completed' => true // Menandai tugas sebagai selesai
     ]);
 
-    return redirect()->back();
+    return redirect()->back(); // Mengalihkan kembali ke halaman sebelumnya
 }
 
 public function destroy($id)
