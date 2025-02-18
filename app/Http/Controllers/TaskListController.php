@@ -4,8 +4,10 @@
 // Dan untuk menghindari konflik nama antara kelas, fungsi, atau konstanta yang mungkin memiliki nama yang sama di bagian lain dari aplikasi.
 namespace App\Http\Controllers;
 
-use App\Models\TaskList;
-use Illuminate\Http\Request;
+use App\Models\TaskList; // Model untuk entitas TaskList
+
+// Mengimpor kelas Request dari namespace Illuminate\Http
+use Illuminate\Http\Request; // Digunakan untuk menangani permintaan HTTP yang masuk,                         termasuk data yang dikirim oleh pengguna.
 
 class TaskListController extends Controller
 {
