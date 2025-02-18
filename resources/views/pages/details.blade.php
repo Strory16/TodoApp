@@ -7,9 +7,10 @@
 <!-- Membuat div dengan kelas 'd-flex' untuk layout flexbox dan 'align-items-center' untuk vertikal center -->
         <div class="d-flex align-items-center">  
 <!-- Membuat tautan yang mengarah ke route 'home' dengan kelas 'btn' dan 'btn-sm' untuk styling tombol kecil -->        <a href="{{ route('home') }}" class="btn btn-sm">  
-
+<!-- Menambahkan ikon panah kiri dari Bootstrap Icons dengan ukuran font 4 -->
                 <i class="bi bi-arrow-left-short fs-4"></i> 
-                <span class="fw-bold fs-5">Kembali</span>  // Menambahkan teks 'Kembali' dengan kelas 'fw-bold' untuk teks tebal dan 'fs-5' untuk ukuran font 5
+<!--  Menambahkan teks 'Kembali' dengan kelas 'fw-bold' untuk teks tebal dan 'fs-5' untuk ukuran font 5 -->
+                <span class="fw-bold fs-5">Kembali</span>  
             </a>
         </div>
 
