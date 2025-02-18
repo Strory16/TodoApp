@@ -11,7 +11,7 @@ class Task extends Model // Mendefinisikan kelas Task yang mewarisi dari Model E
         'name', // Atribut yang dapat diisi secara massal saat membuat atau memperbarui entitas Task.
         'description', // Atribut yang menyimpan deskripsi tugas.
         'is_completed', // Atribut boolean yang menunjukkan apakah tugas telah selesai atau belum. 
-        'priority', // 'priority' adalah atribut yang menyimpan tingkat prioritas tugas (misalnya, 'low', 'medium', 'high'). Ini dapat diisi secara massal untuk menentukan seberapa penting tugas tersebut.
+        'priority', // Atribut yang menyimpan tingkat prioritas tugas (misalnya, 'low', 'medium', 'high').
         'list_id' // 'list_id' adalah atribut yang menyimpan ID dari daftar tugas (TaskList) yang terkait dengan tugas ini. Ini juga dapat diisi secara massal untuk mengaitkan tugas dengan daftar yang tepat.
     ];
 
