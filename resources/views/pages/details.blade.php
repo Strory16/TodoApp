@@ -36,8 +36,10 @@
                     <div class="card-header d-flex align-items-center justify-content-between overflow-hidden"> 
 <!-- Judul dengan teks tebal (fw-bold), ukuran font 4 (fs-4), dan memotong teks yang terlalu panjang (text-truncate) -->
                         <h3 class="fw-bold fs-4 text-truncate mb-0" style="width: 80%">  
-                            {{ $task->name }}  <!-- Menampilkan nama tugas dari objek $task -->
-                            <span class="fs-6 fw-medium">di {{ $task->list->name }}</span>  <!-- Menampilkan nama daftar tugas terkait dengan ukuran font 6 (fs-6) dan teks sedang (fw-medium) -->
+<!-- Menampilkan nama tugas dari objek $task -->
+                            {{ $task->name }}  
+<!-- Menampilkan nama daftar tugas terkait dengan ukuran font 6 (fs-6) dan teks sedang (fw-medium) -->
+                            <span class="fs-6 fw-medium">di {{ $task->list->name }}</span>  
                         </h3>
                         <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"  <!-- Tombol untuk membuka modal edit tugas dengan kelas tombol kecil dan outline -->
                             data-bs-target="#editTaskModal">  <!-- Menentukan target modal yang akan dibuka saat tombol diklik -->
