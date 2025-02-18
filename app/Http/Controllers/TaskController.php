@@ -70,7 +70,7 @@ if ($query) {
     return view('pages.home', $data); // Mengembalikan tampilan dengan data yang telah disiapkan
 }
 
-
+// Digunakan untuk menangani permintaan HTTP POST untuk menyimpan data baru ke dalam database.
 public function store(Request $request)
 {
     $request->validate([
