@@ -48,7 +48,8 @@
                             <i class="bi bi-pencil-square"></i>  
                         </button>
                     </div>
-                    <div class="card-body">  <!-- Bagian tubuh kartu, tempat konten utama dari kartu akan ditampilkan -->
+<!-- Bagian tubuh kartu, tempat konten utama dari kartu akan ditampilkan -->
+                    <div class="card-body">  
                         <p>
                             {{ $task->description }}
                         </p>
