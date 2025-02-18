@@ -94,6 +94,7 @@ public function store(Request $request)
 // Untuk menandai tugas tertentu sebagai selesai berdasarkan ID yang diberikan.
 public function complete($id)
 {
+    // Memberikan respons yang sesuai (404 Not Found).
     Task::findOrFail($id)->update([
         'is_completed' => true // Menandai tugas sebagai selesai
     ]);
