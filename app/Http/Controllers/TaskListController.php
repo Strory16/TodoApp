@@ -12,15 +12,18 @@ use Illuminate\Http\Request; // Digunakan untuk menangani permintaan HTTP yang m
 class TaskListController extends Controller
 {
     public function store(Request $request) {
+        // Validasi input dari permintaan
         $request->validate([
-            'name' => 'required|max:100'
+            'name' => 'required|max:100' // Memastikan 'name' diisi dan tidak lebih dari 100 karakter
         ]);
-
+    
+        // Membuat entitas TaskList baru dengan nama yang diberikan
         TaskList::create([
-            'name' => $request->name
+            'name' => $request->name // Mengambil nama dari input permintaan
         ]);
-
-        return redirect()->back();
+    
+        // Mengalihkan kembali ke halaman sebelumnya setelah menyimpan
+        return redirect()->back(); // Kembali ke halaman sebelumnya
     }
 
     public function destroy($id) {
