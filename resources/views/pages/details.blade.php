@@ -112,24 +112,42 @@
                             <input type="text" class="form-control" id="name" name="name" 
                                 value="{{ $task->name }}" placeholder="Masukkan nama list">  <!-- Nilai input diisi dengan nama tugas dari objek $task, dan placeholder memberikan petunjuk kepada pengguna -->
                         </div>
+
+                    <!-- Kontainer untuk deskripsi tugas -->
                     <div class="mb-3">
+                        <!-- Label untuk textarea deskripsi -->
                         <label for="description" class="form-label">Deskripsi</label>
+                        <!-- Textarea untuk memasukkan deskripsi tugas -->
                         <textarea class="form-control" name="description" id="description" rows="3" placeholder="Masukkan deskripsi">{{ $task->description }}</textarea>
                     </div>
-                    <div class="mb-3">
-                        <label for="priority" class="form-label">Priority</label>
-                        <select class="form-control" name="priority" id="priority">
-                            <option value="low" @selected($task->priority == 'low')>Low</option>
-                            <option value="medium" @selected($task->priority == 'medium')>Medium</option>
-                            <option value="high" @selected($task->priority == 'high')>High</option>
-                        </select>
+
+                <!-- Kontainer untuk memilih prioritas tugas -->
+                <div class="mb-3">
+                    <!-- Label untuk dropdown prioritas -->
+                    <label for="priority" class="form-label">Priority</label>
+                    <!-- Dropdown untuk memilih prioritas tugas -->
+                    <select class="form-control" name="priority" id="priority">
+                        <!-- Opsi untuk prioritas rendah, dengan kondisi untuk menandai opsi yang dipilih -->
+                        <option value="low" @selected($task->priority == 'low')>Low</option>
+                        <!-- Opsi untuk prioritas sedang, dengan kondisi untuk menandai opsi yang dipilih -->
+                        <option value="medium" @selected($task->priority == 'medium')>Medium</option>
+                        <!-- Opsi untuk prioritas tinggi, dengan kondisi untuk menandai opsi yang dipilih -->
+                        <option value="high" @selected($task->priority == 'high')>High</option>
+                    </select>
+                </div>
+
+               <!-- Kontainer untuk bagian footer modal -->
+                    <div class="modal-footer">
+                        <!-- Tombol untuk membatalkan aksi dan menutup modal -->
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <!-- Tombol untuk mengirimkan formulir dan melakukan aksi edit -->
+                        <button type="submit" class="btn btn-primary">Edit</button>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-primary">Edit</button>
-                </div>
-            </form>
-        </div>
-    </div>
+                    <!-- Menutup tag form yang sebelumnya dibuka -->
+                    </form>
+                    <!-- Menutup kontainer utama modal -->
+                    </div>
+                    <!-- Menutup kontainer modal -->
+                    </div>
+<!-- Menandakan akhir dari section yang didefinisikan dalam Blade template -->
 @endsection

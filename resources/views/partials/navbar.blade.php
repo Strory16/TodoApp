@@ -55,7 +55,7 @@
 }
 
 .bg-pink {
-    background-color: gray; /* Warna latar belakang pink */
+    background-color: gray; /* Warna latar belakang abu-abu */
 }
 
 .navbar-dark .navbar-brand {
