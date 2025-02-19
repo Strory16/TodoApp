@@ -78,6 +78,7 @@ public function store(Request $request)
     $request->validate([
         'name' => 'required|max:100', // Validasi nama tugas
         'description' => 'max:255', // Validasi deskripsi tugas
+        'priority'=> 'required|in:low,medium,high',
         'list_id' => 'required' // Validasi ID daftar tugas
     ]);
 
@@ -85,6 +86,7 @@ public function store(Request $request)
     Task::create([
         'name' => $request->name, // Menyimpan nama tugas
         'description' => $request->description, // Menyimpan deskripsi tugas
+        'priority'=> $request->priority,
         'list_id' => $request->list_id // Menyimpan ID daftar tugas
     ]);
 

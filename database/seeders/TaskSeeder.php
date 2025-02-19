@@ -65,13 +65,7 @@ class TaskSeeder extends Seeder  // Mendefinisikan class TaskSeeder yang mewaris
                 'priority' => 'high',  // Prioritas tugas ketujuh.
                 'list_id' => TaskList::where('name', 'Tugas')->first()->id,  // Mengambil ID TaskList berdasarkan nama 'Tugas'.
             ],
-            [
-                'name' => 'capelah',  // Nama tugas kedelapan.
-                'description' => 'Membuat laravel',  // Deskripsi tugas ketujuh.
-                'is_completed' => false,  // Status tugas ketujuh (belum selesai).
-                'priority' => 'medium',  // Prioritas tugas ketujuh.
-                'list_id' => TaskList::where('name', 'Tugas')->first()->id,  // Mengambil ID TaskList berdasarkan nama 'Tugas'.
-            ],
+            
         ];
 
         // Melakukan insert data ke tabel tasks menggunakan model Task
