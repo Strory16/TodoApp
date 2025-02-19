@@ -105,13 +105,13 @@
                         <h1 class="modal-title fs-5" id="editTaskModalLabel">Edit Task</h1>  <!-- Judul modal dengan ukuran font 5 (fs-5) -->
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>  <!-- Tombol untuk menutup modal, menggunakan kelas 'btn-close' dari Bootstrap -->
                     </div>
-                <div class="modal-body">
-                    <input type="text" value="{{ $task->list_id }}" name="list_id" hidden>
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Nama</label>
-                        <input type="text" class="form-control" id="name" name="name"
-                            value="{{ $task->name }}" placeholder="Masukkan nama list">
-                    </div>
+                    <div class="modal-body">  <!-- Bagian tubuh modal, tempat konten utama modal ditampilkan -->
+                        <input type="text" value="{{ $task->list_id }}" name="list_id" hidden>  <!-- Input tersembunyi untuk menyimpan ID daftar tugas, nilainya diambil dari objek $task -->
+                        <div class="mb-3">  <!-- Div dengan margin bawah (mb-3) untuk memberikan spasi antara elemen -->
+                            <label for="name" class="form-label">Nama</label>  <!-- Label untuk input nama, terkait dengan input melalui atribut 'for' -->
+                            <input type="text" class="form-control" id="name" name="name" 
+                                value="{{ $task->name }}" placeholder="Masukkan nama list">  <!-- Nilai input diisi dengan nama tugas dari objek $task, dan placeholder memberikan petunjuk kepada pengguna -->
+                        </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Deskripsi</label>
                         <textarea class="form-control" name="description" id="description" rows="3" placeholder="Masukkan deskripsi">{{ $task->description }}</textarea>
